@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="categoryHasProducts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Product" inverseName="productHasCategory" inverseEntity="Product"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
+        <attribute name="dateAdded" optional="YES" attributeType="String"/>
+        <attribute name="product_name" optional="YES" attributeType="String"/>
+        <attribute name="productID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="productHasCategory" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Category" inverseName="categoryHasProducts" inverseEntity="Category"/>
+        <relationship name="productHasTax" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tax"/>
+        <relationship name="productHasVariant" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Variant" inverseName="variantHasProduct" inverseEntity="Variant"/>
+    </entity>
+    <entity name="Tax" representedClassName="Tax" syncable="YES" codeGenerationType="class">
+        <attribute name="taxID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="taxName" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Variant" representedClassName="Variant" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="variantID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="variantHasProduct" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Product" inverseName="productHasVariant" inverseEntity="Product"/>
+    </entity>
+    <elements>
+        <element name="Category" positionX="-472.0078125" positionY="-170.4453125" width="128" height="88"/>
+        <element name="Product" positionX="-252.30078125" positionY="-151.0078125" width="128" height="133"/>
+        <element name="Variant" positionX="-57.1953125" positionY="48.31640625" width="128" height="118"/>
+        <element name="Tax" positionX="-429.88671875" positionY="52.5390625" width="128" height="88"/>
+    </elements>
 </model>

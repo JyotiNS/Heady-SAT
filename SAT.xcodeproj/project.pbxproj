@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BC456902491F5ED00F68466 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4568E2491F5ED00F68466 /* CategoryCollectionViewCell.swift */; };
+		6BC456912491F5ED00F68466 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC4568F2491F5ED00F68466 /* CategoryCollectionViewCell.xib */; };
+		6BC456942492196F00F68466 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC456922492196F00F68466 /* ProductCollectionViewCell.swift */; };
+		6BC456952492196F00F68466 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC456932492196F00F68466 /* ProductCollectionViewCell.xib */; };
+		6BC4569724921B6200F68466 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4569624921B6200F68466 /* ProductsViewController.swift */; };
+		6BC4569924924D2E00F68466 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC4569824924D2D00F68466 /* CoreData.framework */; };
 		6BD929062490D720000A081B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD929052490D720000A081B /* AppDelegate.swift */; };
 		6BD929082490D720000A081B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD929072490D720000A081B /* SceneDelegate.swift */; };
 		6BD9290A2490D720000A081B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD929092490D720000A081B /* ViewController.swift */; };
@@ -16,6 +22,16 @@
 		6BD929152490D724000A081B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BD929132490D724000A081B /* LaunchScreen.storyboard */; };
 		6BD929202490D724000A081B /* SATTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9291F2490D724000A081B /* SATTests.swift */; };
 		6BD9292B2490D724000A081B /* SATUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9292A2490D724000A081B /* SATUITests.swift */; };
+		6BD9293E2490E28D000A081B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9293B2490E28C000A081B /* Utils.swift */; };
+		6BD9293F2490E28D000A081B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9293C2490E28D000A081B /* Reachability.swift */; };
+		6BD929402490E28D000A081B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9293D2490E28D000A081B /* BaseView.swift */; };
+		6BD929492490E8F8000A081B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD929472490E8F8000A081B /* SWRevealViewController.m */; };
+		6BD9294B2490FF7C000A081B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9294A2490FF7C000A081B /* NetworkManager.swift */; };
+		6BD9294D249102B0000A081B /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9294C249102B0000A081B /* ProductsViewModel.swift */; };
+		6BD9294F24910C62000A081B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9294E24910C62000A081B /* CategoryViewController.swift */; };
+		ACF635396861CDDF968774FC /* Pods_SAT_SATUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB056070D4EFA0877B8C485A /* Pods_SAT_SATUITests.framework */; };
+		CCF0C5B725AEAA90DA6390AB /* Pods_SAT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF11398C5D91CEFFF72FD80 /* Pods_SAT.framework */; };
+		D28F6B48F8057EC81B68EBC2 /* Pods_SATTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B2C4AB9894B70867E141DF /* Pods_SATTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +52,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06B93BD2F026C36C56928088 /* Pods-SAT-SATUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAT-SATUITests.release.xcconfig"; path = "Target Support Files/Pods-SAT-SATUITests/Pods-SAT-SATUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2E686059F37BECA62E34FBA0 /* Pods-SAT-SATUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAT-SATUITests.debug.xcconfig"; path = "Target Support Files/Pods-SAT-SATUITests/Pods-SAT-SATUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4AF11398C5D91CEFFF72FD80 /* Pods_SAT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50B2C4AB9894B70867E141DF /* Pods_SATTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SATTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		675D6F935590FF9956A9D934 /* Pods-SAT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAT.release.xcconfig"; path = "Target Support Files/Pods-SAT/Pods-SAT.release.xcconfig"; sourceTree = "<group>"; };
+		6879AD487EC0EEEAF0A4A68E /* Pods-SATTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SATTests.debug.xcconfig"; path = "Target Support Files/Pods-SATTests/Pods-SATTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6BC4568E2491F5ED00F68466 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6BC4568F2491F5ED00F68466 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		6BC456922492196F00F68466 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		6BC456932492196F00F68466 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		6BC4569624921B6200F68466 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		6BC4569824924D2D00F68466 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6BD929022490D720000A081B /* SAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD929052490D720000A081B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BD929072490D720000A081B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +79,18 @@
 		6BD929262490D724000A081B /* SATUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SATUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD9292A2490D724000A081B /* SATUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATUITests.swift; sourceTree = "<group>"; };
 		6BD9292C2490D725000A081B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BD9293B2490E28C000A081B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6BD9293C2490E28D000A081B /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		6BD9293D2490E28D000A081B /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		6BD929462490E8F8000A081B /* SAT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SAT-Bridging-Header.h"; sourceTree = "<group>"; };
+		6BD929472490E8F8000A081B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		6BD929482490E8F8000A081B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		6BD9294A2490FF7C000A081B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		6BD9294C249102B0000A081B /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		6BD9294E24910C62000A081B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		CB056070D4EFA0877B8C485A /* Pods_SAT_SATUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAT_SATUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D21D5E1CA13321E0D5BF91DF /* Pods-SAT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAT.debug.xcconfig"; path = "Target Support Files/Pods-SAT/Pods-SAT.debug.xcconfig"; sourceTree = "<group>"; };
+		F83F1482C94C77A59E894BA1 /* Pods-SATTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SATTests.release.xcconfig"; path = "Target Support Files/Pods-SATTests/Pods-SATTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC4569924924D2E00F68466 /* CoreData.framework in Frameworks */,
+				CCF0C5B725AEAA90DA6390AB /* Pods_SAT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28F6B48F8057EC81B68EBC2 /* Pods_SATTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +115,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF635396861CDDF968774FC /* Pods_SAT_SATUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		209AF04FC9DC2F1F69DECB89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6BC4569824924D2D00F68466 /* CoreData.framework */,
+				4AF11398C5D91CEFFF72FD80 /* Pods_SAT.framework */,
+				CB056070D4EFA0877B8C485A /* Pods_SAT_SATUITests.framework */,
+				50B2C4AB9894B70867E141DF /* Pods_SATTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6BD928F92490D720000A081B = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +140,8 @@
 				6BD9291E2490D724000A081B /* SATTests */,
 				6BD929292490D724000A081B /* SATUITests */,
 				6BD929032490D720000A081B /* Products */,
+				8A7B21194A18BB84CFA54B53 /* Pods */,
+				209AF04FC9DC2F1F69DECB89 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +158,10 @@
 		6BD929042490D720000A081B /* SAT */ = {
 			isa = PBXGroup;
 			children = (
+				6BD929412490E8AE000A081B /* SideBarMenu */,
+				6BD9293A2490DDA6000A081B /* Common Classes */,
+				6BD929392490DBAD000A081B /* ViewModels */,
+				6BD929382490DBA5000A081B /* Views */,
 				6BD929052490D720000A081B /* AppDelegate.swift */,
 				6BD929072490D720000A081B /* SceneDelegate.swift */,
 				6BD929092490D720000A081B /* ViewController.swift */,
@@ -131,6 +192,69 @@
 			path = SATUITests;
 			sourceTree = "<group>";
 		};
+		6BD929382490DBA5000A081B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6BD9294E24910C62000A081B /* CategoryViewController.swift */,
+				6BC4568E2491F5ED00F68466 /* CategoryCollectionViewCell.swift */,
+				6BC4568F2491F5ED00F68466 /* CategoryCollectionViewCell.xib */,
+				6BC456922492196F00F68466 /* ProductCollectionViewCell.swift */,
+				6BC456932492196F00F68466 /* ProductCollectionViewCell.xib */,
+				6BC4569624921B6200F68466 /* ProductsViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6BD929392490DBAD000A081B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6BD9294C249102B0000A081B /* ProductsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6BD9293A2490DDA6000A081B /* Common Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6BD9293D2490E28D000A081B /* BaseView.swift */,
+				6BD9293C2490E28D000A081B /* Reachability.swift */,
+				6BD9293B2490E28C000A081B /* Utils.swift */,
+				6BD9294A2490FF7C000A081B /* NetworkManager.swift */,
+			);
+			path = "Common Classes";
+			sourceTree = "<group>";
+		};
+		6BD929412490E8AE000A081B /* SideBarMenu */ = {
+			isa = PBXGroup;
+			children = (
+				6BD929422490E8C4000A081B /* SWRevealViewController */,
+			);
+			path = SideBarMenu;
+			sourceTree = "<group>";
+		};
+		6BD929422490E8C4000A081B /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6BD929482490E8F8000A081B /* SWRevealViewController.h */,
+				6BD929472490E8F8000A081B /* SWRevealViewController.m */,
+				6BD929462490E8F8000A081B /* SAT-Bridging-Header.h */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		8A7B21194A18BB84CFA54B53 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D21D5E1CA13321E0D5BF91DF /* Pods-SAT.debug.xcconfig */,
+				675D6F935590FF9956A9D934 /* Pods-SAT.release.xcconfig */,
+				2E686059F37BECA62E34FBA0 /* Pods-SAT-SATUITests.debug.xcconfig */,
+				06B93BD2F026C36C56928088 /* Pods-SAT-SATUITests.release.xcconfig */,
+				6879AD487EC0EEEAF0A4A68E /* Pods-SATTests.debug.xcconfig */,
+				F83F1482C94C77A59E894BA1 /* Pods-SATTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +262,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BD9292F2490D725000A081B /* Build configuration list for PBXNativeTarget "SAT" */;
 			buildPhases = (
+				B5DE4DC956DDF617858BAF20 /* [CP] Check Pods Manifest.lock */,
 				6BD928FE2490D720000A081B /* Sources */,
 				6BD928FF2490D720000A081B /* Frameworks */,
 				6BD929002490D720000A081B /* Resources */,
+				704150B4D07EE1381981D5AD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +281,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BD929322490D725000A081B /* Build configuration list for PBXNativeTarget "SATTests" */;
 			buildPhases = (
+				6B3F458ACB6734D473DCA4AC /* [CP] Check Pods Manifest.lock */,
 				6BD929172490D724000A081B /* Sources */,
 				6BD929182490D724000A081B /* Frameworks */,
 				6BD929192490D724000A081B /* Resources */,
@@ -173,9 +300,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BD929352490D725000A081B /* Build configuration list for PBXNativeTarget "SATUITests" */;
 			buildPhases = (
+				2044BC0B13E1A947FC73C7F6 /* [CP] Check Pods Manifest.lock */,
 				6BD929222490D724000A081B /* Sources */,
 				6BD929232490D724000A081B /* Frameworks */,
 				6BD929242490D724000A081B /* Resources */,
+				F01C459C17714C7FDE737E1F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -199,6 +328,7 @@
 				TargetAttributes = {
 					6BD929012490D720000A081B = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					6BD9291A2490D724000A081B = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -235,7 +365,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC456912491F5ED00F68466 /* CategoryCollectionViewCell.xib in Resources */,
 				6BD929152490D724000A081B /* LaunchScreen.storyboard in Resources */,
+				6BC456952492196F00F68466 /* ProductCollectionViewCell.xib in Resources */,
 				6BD929122490D724000A081B /* Assets.xcassets in Resources */,
 				6BD9290D2490D720000A081B /* Main.storyboard in Resources */,
 			);
@@ -257,14 +389,127 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2044BC0B13E1A947FC73C7F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SAT-SATUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B3F458ACB6734D473DCA4AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SATTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		704150B4D07EE1381981D5AD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SAT/Pods-SAT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SAT/Pods-SAT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SAT/Pods-SAT-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5DE4DC956DDF617858BAF20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SAT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F01C459C17714C7FDE737E1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SAT-SATUITests/Pods-SAT-SATUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SAT-SATUITests/Pods-SAT-SATUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SAT-SATUITests/Pods-SAT-SATUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6BD928FE2490D720000A081B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BD9294B2490FF7C000A081B /* NetworkManager.swift in Sources */,
+				6BD9293E2490E28D000A081B /* Utils.swift in Sources */,
+				6BC4569724921B6200F68466 /* ProductsViewController.swift in Sources */,
 				6BD929102490D720000A081B /* SAT.xcdatamodeld in Sources */,
+				6BD9293F2490E28D000A081B /* Reachability.swift in Sources */,
+				6BC456902491F5ED00F68466 /* CategoryCollectionViewCell.swift in Sources */,
+				6BD929492490E8F8000A081B /* SWRevealViewController.m in Sources */,
+				6BC456942492196F00F68466 /* ProductCollectionViewCell.swift in Sources */,
 				6BD9290A2490D720000A081B /* ViewController.swift in Sources */,
+				6BD929402490E28D000A081B /* BaseView.swift in Sources */,
 				6BD929062490D720000A081B /* AppDelegate.swift in Sources */,
+				6BD9294D249102B0000A081B /* ProductsViewModel.swift in Sources */,
+				6BD9294F24910C62000A081B /* CategoryViewController.swift in Sources */,
 				6BD929082490D720000A081B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,8 +681,10 @@
 		};
 		6BD929302490D725000A081B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D21D5E1CA13321E0D5BF91DF /* Pods-SAT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -446,6 +693,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heady.SAT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SAT/SideBarMenu/SWRevealViewController/SAT-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,8 +702,10 @@
 		};
 		6BD929312490D725000A081B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 675D6F935590FF9956A9D934 /* Pods-SAT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -463,6 +714,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heady.SAT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SAT/SideBarMenu/SWRevealViewController/SAT-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -470,6 +722,7 @@
 		};
 		6BD929332490D725000A081B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6879AD487EC0EEEAF0A4A68E /* Pods-SATTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +744,7 @@
 		};
 		6BD929342490D725000A081B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F83F1482C94C77A59E894BA1 /* Pods-SATTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +766,7 @@
 		};
 		6BD929362490D725000A081B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E686059F37BECA62E34FBA0 /* Pods-SAT-SATUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -531,6 +786,7 @@
 		};
 		6BD929372490D725000A081B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06B93BD2F026C36C56928088 /* Pods-SAT-SATUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,6 @@
+framework module Pods_SAT_SATUITests {
+  umbrella header "Pods-SAT-SATUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

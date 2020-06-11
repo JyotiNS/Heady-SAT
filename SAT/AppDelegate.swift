@@ -8,14 +8,41 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        IQKeyboardManager.shared.enable = true
+       UINavigationBar.appearance().tintColor = UIColor.white
+       UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white] //[NSForegroundColorAttributeName:UIColor.white]
+       if #available(iOS 13.0, *) {
+          window?.overrideUserInterfaceStyle = .light
+        } else {
+          // Fallback on earlier versions
+        }
+       do {
+           try Network.reachability = Reachability(hostname: "www.apple.com")
+       }
+       catch {
+           switch error as? Network.Error {
+            case let .failedToCreateWith(hostname)?:
+                print("Network error:\nFailed to create reachability object With host named:", hostname)
+            case let .failedToInitializeWith(address)?:
+                print("Network error:\nFailed to initialize reachability object With address:", address)
+            case .failedToSetCallout?:
+                print("Network error:\nFailed to set callout")
+            case .failedToSetDispatchQueue?:
+                print("Network error:\nFailed to set DispatchQueue")
+            case .none:
+                print(error)
+            }
+        }
         return true
     }
 
@@ -34,7 +61,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-
+    
+    lazy var managedObjectContext : NSManagedObjectContext = {
+        
+        let context = NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
+        
+        return context
+    }()
+    lazy var manageObjectModel : NSManagedObjectModel = {
+        
+        let url = Bundle.main.url(forResource: "SAT", withExtension: "momd")
+        let model = NSManagedObjectModel.init(contentsOf: url!)
+        
+        return model!
+    }()
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation

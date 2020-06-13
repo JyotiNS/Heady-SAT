@@ -10,6 +10,7 @@ target 'SAT' do
 	 pod 'iOSDropDown'
 	 pod 'Alamofire', '~> 5.1'
    pod 'IQKeyboardManagerSwift'
+   pod 'NVActivityIndicatorView'
 
   target 'SATTests' do
     inherit! :search_paths

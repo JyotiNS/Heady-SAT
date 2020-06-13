@@ -11,6 +11,13 @@ import UIKit
 
 class BaseView : UIViewController {
     
+     let itemsPerRow: CGFloat = 2
+     let sectionInsets = UIEdgeInsets(top: 10.0,
+                                                 left: 20,
+                                                 bottom: 0.0,
+                                                 right: 20)
+     let nscontext = ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
+
     var isIntenetConnected = true
     var connectionStatus : Bool?
     override func viewDidLoad() {
@@ -68,3 +75,17 @@ class BaseView : UIViewController {
 //       vc.present(self, animated: true, completion: nil)
 //   }
 //}
+extension Array {
+    func unique<T:Hashable>(map: ((Element) -> (T)))  -> [Element] {
+        var set = Set<T>() //the unique list kept in a Set for fast retrieval
+        var arrayOrdered = [Element]() //keeping the unique list of elements but ordered
+        for value in self {
+            if !set.contains(map(value)) {
+                set.insert(map(value))
+                arrayOrdered.append(value)
+            }
+        }
+
+        return arrayOrdered
+    }
+}

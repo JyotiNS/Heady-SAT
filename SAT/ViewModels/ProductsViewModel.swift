@@ -30,20 +30,12 @@ class ProductsViewModel : NSObject {
                 if let data = responseData {
                     
                      do {
-//                         let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? Dictionary<String,Any>
-                        
-//                        if json != nil {
-                            
-//                            let categories = json?["categories"]
-                            
-                             let decoder = JSONDecoder()
+                         let decoder = JSONDecoder()
 //                             let data =  NSKeyedArchiver.archivedData(withRootObject: categories!)
-                             decoder.keyDecodingStrategy = .convertFromSnakeCase
-                             let categoryData = try decoder.decode(ProductDataModel.self, from: data )
-                             completionHandler(categoryData,nil)
+                         decoder.keyDecodingStrategy = .convertFromSnakeCase
+                         let categoryData = try decoder.decode(ProductDataModel.self, from: data )
+                         completionHandler(categoryData,nil)
 
-//                        }
-//                         completionHandler(categories,nil)
                      }catch {
                          print(error)
                          completionHandler(nil,error.localizedDescription)

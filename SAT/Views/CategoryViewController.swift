@@ -9,18 +9,14 @@
 import UIKit
 import CoreData
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: BaseView {
 
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     var productsVM : ProductsViewModel?
     var collectionDataSource : [category]?
     private let reuseIdentifier = "categoryCellID"
-    private let itemsPerRow: CGFloat = 2
-    private let sectionInsets = UIEdgeInsets(top: 10.0,
-                                             left: 20,
-                                             bottom: 0.0,
-                                             right: 20)
-     let nscontext = ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
+    var selectedCategory : category?
+//     let nscontext = ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,86 +25,72 @@ class CategoryViewController: UIViewController {
         self.categoryCollectionView.dataSource = self
         self.categoryCollectionView.delegate = self
         self.categoryCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-//        self.categoryCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "categoryCellID")
         self.categoryCollectionView.reloadData()
         getCategoryData()
         //self.loadFromDatabase()
     }
     func getCategoryData(){
         
+        if self.isIntenetConnected {
+        ProgressView.sharedInstance.showProgressView(msg: "Loading Data", onView: self)
         productsVM?.getProducts(completionHandler: { (categories , error) in
             
             if categories != nil{
                 
 //                self.collectionDataSource = categories?.categories
                 self.saveData(categoryData: categories?.categories)
-                
+                ProgressView.sharedInstance.stopProgressView()
 //                self.categoryCollectionView.reloadData()
             }
             
         })
+        }else{
+            
+        }
         
     }
     func saveData(categoryData : [category]?){
         
         if let categories = categoryData, categories.count > 0 {
             
-            for category in categories {
-                let entity = NSEntityDescription.insertNewObject(forEntityName: "Category",
-                                        into: nscontext)
-
-                entity.setValue(category.id, forKey: "id")
-                entity.setValue(category.name, forKey: "name")
-               
-                do
-                {
-                    nscontext.mergePolicy =  NSMergeByPropertyObjectTrumpMergePolicy
-                    try nscontext.save()
-                }
-                catch
-                {
-                    print("Error!!!")
-                }
-                print("Record Inserted")
-                
-            }
+            DatabaseClass.sharedInstance.saveAllData(categrotyData: categories)
             self.loadFromDatabase()
-            
         }
     }
     func loadFromDatabase(){
         
-        
-        let context = nscontext
-        var locations  = [Category]()  // Login is your Entity name
-        let fetchRequest =  NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
-       fetchRequest.returnsObjectsAsFaults = false
-       locations = try! context.fetch(fetchRequest) as! [Category]
-       self.collectionDataSource = [category]()
-       for location in locations
-       {
-        
-        print("category : \(location.value(forKey: "name") ?? "test")")
-        let cat = category.init()
-        cat.id = location.value(forKey: "id") as? Int
-        cat.name = location.value(forKey: "name") as? String
-        
-        self.collectionDataSource?.append(cat)// item is your array
-        
-       }
+        let categories =  DatabaseClass.sharedInstance.getAllCategoryData()
+        self.collectionDataSource = [category]()
+        self.collectionDataSource?.append(contentsOf: categories)// item is your array
         self.categoryCollectionView.reloadData()
         
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "productSegue" {
+            
+            if let vc : ProductsViewController = segue.destination as? ProductsViewController {
+                
+                vc.selectedCategoryID = selectedCategory?.id
+                vc.selectedCategoryName = selectedCategory?.name
+            }
+            
+        }else if segue.identifier == "productToChildSegue" {
+            
+            if let vc : ChildCategoryViewController = segue.destination as? ChildCategoryViewController {
+                
+                vc.selectedCategory = selectedCategory
+//                vc.selectedCategoryName = selectedCategory?.name
+            }
+        }
     }
-    */
+    
 
 }
 extension CategoryViewController : UICollectionViewDataSource {
@@ -140,13 +122,15 @@ extension CategoryViewController : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let selectedCategory = self.collectionDataSource?[indexPath.item]
+        selectedCategory = self.collectionDataSource?[indexPath.item]
         
         if selectedCategory != nil {
             
             if let subcategory = selectedCategory?.childCategories, subcategory.count > 0 {
                 
                 //show subcategories
+                self.performSegue(withIdentifier: "productToChildSegue", sender: self)
+
             }else{
                 
                 //show products

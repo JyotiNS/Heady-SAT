@@ -7,37 +7,57 @@
 //
 
 import UIKit
+import CoreData
 
-class ProductsViewController: UIViewController {
+class ProductsViewController: BaseView {
 
     @IBOutlet weak var productsCollectionView: UICollectionView!
     private let reuseIdentifier = "productCellID"
-    private let itemsPerRow: CGFloat = 2
-    private let sectionInsets = UIEdgeInsets(top: 10.0,
-                                             left: 20,
-                                            bottom: 0.0,
-                                            right: 20)
     var collectionDataSource : [product]?
-
+    var selectedCategoryID : Int?
+    var selectedCategoryName : String?
+    var selectedProduct : product?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.title = self.selectedCategoryName
+        self.navigationItem.title  = self.selectedCategoryName
         self.productsCollectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         self.productsCollectionView.reloadData()
+        getProductsFromDB()
 //
     }
     
-
-    /*
+    func getProductsFromDB(){
+        
+        if let selectedCat = self.selectedCategoryID {
+            
+            let products =  DatabaseClass.sharedInstance.getProductsForCategory(categoryId: selectedCat)
+            self.collectionDataSource = [product]()
+            self.collectionDataSource?.append(contentsOf: products)
+            self.productsCollectionView.reloadData()
+        }
+        
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "productDetailSegue" {
+                   
+           if let vc : ProductDetailsViewController = segue.destination as? ProductDetailsViewController {
+               
+               vc.selectedProduct = selectedProduct
+           }
+           
+       }
+        
     }
-    */
+    
 
 }
 extension ProductsViewController : UICollectionViewDataSource {
@@ -55,7 +75,10 @@ extension ProductsViewController : UICollectionViewDataSource {
         if let product = self.collectionDataSource?[indexPath.item] {
             
             cell.productName.text = product.name
-            
+            if let price = product.variants?[0].price{
+            cell.price.text = "₹ \(price)"
+                
+            }
         }
         
         return cell
@@ -70,9 +93,9 @@ extension ProductsViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let selectedProduct = self.collectionDataSource?[indexPath.item]
-        
+        self.selectedProduct = selectedProduct
         if selectedProduct != nil {
-            
+            self.performSegue(withIdentifier: "productDetailSegue", sender: self)
             
         }
         
